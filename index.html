@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andy Lin — 履歷</title>
+<meta name="description" content="Andy Lin 的個人履歷網站。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+<style>
+  :root{
+    --bg:#fbfaf8; --surface:#ffffff; --text:#1d1c1a; --muted:#6c6760;
+    --line:#e5e1db; --accent:#b4552d; --accent-soft:#f3e7e0;
+    --maxw:760px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#141311; --surface:#1c1b19; --text:#eceae6; --muted:#9b958c;
+      --line:#2e2c29; --accent:#e08a5f; --accent-soft:#2a211c;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#141311; --surface:#1c1b19; --text:#eceae6; --muted:#9b958c;
+    --line:#2e2c29; --accent:#e08a5f; --accent-soft:#2a211c;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;
+    font-size:16px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:64px 16px 96px}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent}
+  a:hover{border-bottom-color:currentColor}
+
+  /* ---------- Header ---------- */
+  header.hero{border-bottom:1px solid var(--line); padding-bottom:28px; margin-bottom:40px}
+  .name{font-size:clamp(30px,6vw,42px); line-height:1.15; margin:0 0 6px; letter-spacing:-.02em; font-weight:650}
+  .tagline{margin:0 0 18px; color:var(--muted); font-size:clamp(15px,2.6vw,17px)}
+  .contact{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:14.5px; color:var(--muted); margin:0; padding:0; list-style:none}
+  .contact a{color:var(--muted)}
+  .contact a:hover{color:var(--accent)}
+
+  /* ---------- Sections ---------- */
+  section{margin:0 0 44px}
+  h2{
+    font-size:12.5px; text-transform:uppercase; letter-spacing:.13em;
+    color:var(--accent); font-weight:700; margin:0 0 20px;
+    padding-bottom:8px; border-bottom:1px solid var(--line);
+  }
+  .summary{margin:0; color:var(--text)}
+
+  .item{margin:0 0 28px; position:relative}
+  .item:last-child{margin-bottom:0}
+  .item-head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 16px}
+  .role{font-size:17px; font-weight:650; margin:0}
+  .org{color:var(--muted); font-size:15px; margin:2px 0 0}
+  .when{color:var(--muted); font-size:13.5px; font-variant-numeric:tabular-nums; white-space:nowrap}
+  .item ul{margin:10px 0 0; padding-left:1.15em}
+  .item li{margin:0 0 6px}
+  .item li::marker{color:var(--muted)}
+
+  /* ---------- Skills ---------- */
+  .skill-row{display:grid; grid-template-columns:140px 1fr; gap:10px 20px; padding:10px 0; border-bottom:1px dashed var(--line)}
+  .skill-row:last-child{border-bottom:0}
+  .skill-label{color:var(--muted); font-size:14px; padding-top:2px}
+  .tags{display:flex; flex-wrap:wrap; gap:7px; margin:0; padding:0; list-style:none}
+  .tags li{
+    background:var(--accent-soft); color:var(--text);
+    font-size:13px; padding:3px 10px; border-radius:999px; line-height:1.5;
+  }
+  @media (max-width:560px){
+    .skill-row{grid-template-columns:1fr; gap:6px}
+    .wrap{padding:40px 16px 72px}
+  }
+
+  footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13.5px}
+
+  /* ---------- Theme toggle ---------- */
+  .toggle{
+    position:fixed; top:16px; right:16px; z-index:10;
+    background:var(--surface); color:var(--muted); border:1px solid var(--line);
+    width:38px; height:38px; border-radius:50%; cursor:pointer;
+    font-size:16px; line-height:1; display:grid; place-items:center;
+  }
+  .toggle:hover{color:var(--accent); border-color:var(--accent)}
+
+  /* ---------- Print / PDF ---------- */
+  @media print{
+    :root{--bg:#fff; --surface:#fff; --text:#000; --muted:#444; --line:#ccc; --accent:#000; --accent-soft:#eee}
+    .toggle{display:none}
+    .wrap{padding:0; max-width:none}
+    body{font-size:11pt}
+    section{margin-bottom:22px; break-inside:avoid}
+    .item{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<button class="toggle" id="themeToggle" aria-label="切換深淺色模式">◐</button>
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1 class="name">Andy Lin</h1>
+    <p class="tagline">職稱 · 一句話講清楚你是做什麼的，以及最擅長解決什麼問題。</p>
+    <ul class="contact">
+      <li>📍 Taipei, Taiwan</li>
+      <li><a href="mailto:your@email.com">your@email.com</a></li>
+      <li><a href="https://github.com/UncleLin332">github.com/UncleLin332</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </header>
+
+  <section id="about">
+    <h2>關於我</h2>
+    <p class="summary">
+      用三到四句話說明你的專業背景、累積的年資、最具代表性的成果，以及接下來想投入的方向。
+      盡量放具體數字（例如「將處理時間從 8 小時縮短到 20 分鐘」），比形容詞有說服力得多。
+    </p>
+  </section>
+
+  <section id="experience">
+    <h2>工作經歷</h2>
+
+    <article class="item">
+      <div class="item-head">
+        <div>
+          <h3 class="role">職稱</h3>
+          <p class="org">公司名稱 · 台北</p>
+        </div>
+        <span class="when">2023.07 – 至今</span>
+      </div>
+      <ul>
+        <li>負責的主要任務，以及它對團隊或產品的意義。</li>
+        <li>一項可量化的成果：改善了什麼指標、幅度多少。</li>
+        <li>用到的關鍵技術或方法，以及你在其中的角色。</li>
+      </ul>
+    </article>
+
+    <article class="item">
+      <div class="item-head">
+        <div>
+          <h3 class="role">前一份職稱</h3>
+          <p class="org">公司名稱 · 台北</p>
+        </div>
+        <span class="when">2021.03 – 2023.06</span>
+      </div>
+      <ul>
+        <li>主要負責範圍。</li>
+        <li>具代表性的專案與成果。</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="projects">
+    <h2>專案作品</h2>
+
+    <article class="item">
+      <div class="item-head">
+        <div>
+          <h3 class="role">專案名稱</h3>
+          <p class="org"><a href="#">github.com/UncleLin332/project</a></p>
+        </div>
+        <span class="when">2024</span>
+      </div>
+      <ul>
+        <li>這個專案解決什麼問題、做給誰用。</li>
+        <li>技術選擇與你負責的部分；若有使用者數或成效，放這裡。</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="skills">
+    <h2>技能</h2>
+    <div class="skill-row">
+      <div class="skill-label">語言</div>
+      <ul class="tags"><li>Python</li><li>JavaScript</li><li>SQL</li></ul>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">框架 / 工具</div>
+      <ul class="tags"><li>React</li><li>Node.js</li><li>Docker</li><li>Git</li></ul>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">語文</div>
+      <ul class="tags"><li>中文（母語）</li><li>English</li></ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>學歷</h2>
+    <article class="item">
+      <div class="item-head">
+        <div>
+          <h3 class="role">科系 · 學位</h3>
+          <p class="org">學校名稱</p>
+        </div>
+        <span class="when">2017 – 2021</span>
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    最後更新：2026 年 11 月 · 以 GitHub Pages 架設
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var root = document.documentElement, btn = document.getElementById('themeToggle');
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch(e) {}
+    if (saved) root.setAttribute('data-theme', saved);
+    btn.addEventListener('click', function(){
+      var isDark = root.getAttribute('data-theme') === 'dark' ||
+        (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e) {}
+    });
+  })();
+</script>
+</body>
+</html>
