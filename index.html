@@ -3,14 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Andy Lin — 履歷</title>
-<meta name="description" content="Andy Lin 的個人履歷網站。">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+<title>Andy Lin</title>
+<meta name="description" content="林祐安 Andy Lin — 國立臺灣科技大學資通科技國際學士學位學程。記錄我做過的專案與學到的東西。">
+
+<!-- LinkedIn / 社群分享卡片 -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Andy Lin">
+<meta property="og:description" content="國立臺灣科技大學 · 資通科技國際學士學位學程。記錄我做過的專案與學到的東西。">
+<meta property="og:url" content="https://unclelin332.github.io/">
+<meta name="twitter:card" content="summary">
+<!-- TODO: 之後放一張 1200×630 的圖（og-image.png）到 repo，取消下一行註解，分享時會顯示大圖卡片
+<meta property="og:image" content="https://unclelin332.github.io/og-image.png">
+-->
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
 <style>
   :root{
     --bg:#fbfaf8; --surface:#ffffff; --text:#1d1c1a; --muted:#6c6760;
     --line:#e5e1db; --accent:#b4552d; --accent-soft:#f3e7e0;
-    --maxw:760px;
+    --maxw:720px;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -31,14 +42,18 @@
     font-size:16px; line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:64px 16px 96px}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:64px 20px 96px}
   a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent}
   a:hover{border-bottom-color:currentColor}
 
   /* ---------- Header ---------- */
-  header.hero{border-bottom:1px solid var(--line); padding-bottom:28px; margin-bottom:40px}
-  .name{font-size:clamp(30px,6vw,42px); line-height:1.15; margin:0 0 6px; letter-spacing:-.02em; font-weight:650}
-  .tagline{margin:0 0 18px; color:var(--muted); font-size:clamp(15px,2.6vw,17px)}
+  header.hero{border-bottom:1px solid var(--line); padding-bottom:30px; margin-bottom:44px}
+  .name{font-size:clamp(32px,6.5vw,44px); line-height:1.12; margin:0 0 14px; letter-spacing:-.02em; font-weight:650}
+  .motto{
+    margin:0 0 16px; font-size:clamp(15px,2.8vw,17px); color:var(--accent);
+    font-style:italic; letter-spacing:.01em;
+  }
+  .affil{margin:0 0 20px; color:var(--muted); font-size:15px; line-height:1.55}
   .contact{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:14.5px; color:var(--muted); margin:0; padding:0; list-style:none}
   .contact a{color:var(--muted)}
   .contact a:hover{color:var(--accent)}
@@ -50,35 +65,32 @@
     color:var(--accent); font-weight:700; margin:0 0 20px;
     padding-bottom:8px; border-bottom:1px solid var(--line);
   }
-  .summary{margin:0; color:var(--text)}
+  .summary{margin:0}
 
-  .item{margin:0 0 28px; position:relative}
+  .item{margin:0 0 26px}
   .item:last-child{margin-bottom:0}
   .item-head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 16px}
   .role{font-size:17px; font-weight:650; margin:0}
-  .org{color:var(--muted); font-size:15px; margin:2px 0 0}
+  .org{color:var(--muted); font-size:15px; margin:3px 0 0}
   .when{color:var(--muted); font-size:13.5px; font-variant-numeric:tabular-nums; white-space:nowrap}
   .item ul{margin:10px 0 0; padding-left:1.15em}
   .item li{margin:0 0 6px}
   .item li::marker{color:var(--muted)}
 
-  /* ---------- Skills ---------- */
-  .skill-row{display:grid; grid-template-columns:140px 1fr; gap:10px 20px; padding:10px 0; border-bottom:1px dashed var(--line)}
-  .skill-row:last-child{border-bottom:0}
-  .skill-label{color:var(--muted); font-size:14px; padding-top:2px}
+  /* ---------- Credential rows ---------- */
+  .cred{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between;
+        gap:4px 16px; padding:11px 0; border-bottom:1px dashed var(--line)}
+  .cred:last-child{border-bottom:0}
+  .cred-name{font-weight:600; font-size:15.5px}
+  .cred-meta{color:var(--muted); font-size:14px}
+  .cred-when{color:var(--muted); font-size:13.5px; font-variant-numeric:tabular-nums; white-space:nowrap}
+
+  /* ---------- Tags ---------- */
   .tags{display:flex; flex-wrap:wrap; gap:7px; margin:0; padding:0; list-style:none}
-  .tags li{
-    background:var(--accent-soft); color:var(--text);
-    font-size:13px; padding:3px 10px; border-radius:999px; line-height:1.5;
-  }
-  @media (max-width:560px){
-    .skill-row{grid-template-columns:1fr; gap:6px}
-    .wrap{padding:40px 16px 72px}
-  }
+  .tags li{background:var(--accent-soft); font-size:13px; padding:3px 10px; border-radius:999px; line-height:1.5}
 
   footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13.5px}
 
-  /* ---------- Theme toggle ---------- */
   .toggle{
     position:fixed; top:16px; right:16px; z-index:10;
     background:var(--surface); color:var(--muted); border:1px solid var(--line);
@@ -87,7 +99,8 @@
   }
   .toggle:hover{color:var(--accent); border-color:var(--accent)}
 
-  /* ---------- Print / PDF ---------- */
+  @media (max-width:560px){ .wrap{padding:40px 18px 72px} }
+
   @media print{
     :root{--bg:#fff; --surface:#fff; --text:#000; --muted:#444; --line:#ccc; --accent:#000; --accent-soft:#eee}
     .toggle{display:none}
@@ -105,88 +118,22 @@
 
   <header class="hero">
     <h1 class="name">Andy Lin</h1>
-    <p class="tagline">職稱 · 一句話講清楚你是做什麼的，以及最擅長解決什麼問題。</p>
+    <p class="motto">「要把生命留在現在」</p>
+    <p class="affil">國立臺灣科技大學 · 資通科技國際學士學位學程 · 大二在學中</p>
     <ul class="contact">
       <li>📍 Taipei, Taiwan</li>
-      <li><a href="mailto:your@email.com">your@email.com</a></li>
-      <li><a href="https://github.com/UncleLin332">github.com/UncleLin332</a></li>
-      <li><a href="#">LinkedIn</a></li>
+      <li><a href="mailto:cincinnatilions@icloud.com">cincinnatilions@icloud.com</a></li>
+      <li><a href="https://www.linkedin.com/in/andy-lin-282a4b432/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/UncleLin332" target="_blank" rel="noopener">GitHub</a></li>
     </ul>
   </header>
 
   <section id="about">
     <h2>關於我</h2>
     <p class="summary">
-      用三到四句話說明你的專業背景、累積的年資、最具代表性的成果，以及接下來想投入的方向。
-      盡量放具體數字（例如「將處理時間從 8 小時縮短到 20 分鐘」），比形容詞有說服力得多。
+      國立臺灣科技大學資通科技國際學士學位學程大二在學中，正在打底程式與通訊領域的基礎。
+      這個網站會持續記錄我做過的專案、拿到的證照，以及一路上學到的東西。
     </p>
-  </section>
-
-  <section id="experience">
-    <h2>工作經歷</h2>
-
-    <article class="item">
-      <div class="item-head">
-        <div>
-          <h3 class="role">職稱</h3>
-          <p class="org">公司名稱 · 台北</p>
-        </div>
-        <span class="when">2023.07 – 至今</span>
-      </div>
-      <ul>
-        <li>負責的主要任務，以及它對團隊或產品的意義。</li>
-        <li>一項可量化的成果：改善了什麼指標、幅度多少。</li>
-        <li>用到的關鍵技術或方法，以及你在其中的角色。</li>
-      </ul>
-    </article>
-
-    <article class="item">
-      <div class="item-head">
-        <div>
-          <h3 class="role">前一份職稱</h3>
-          <p class="org">公司名稱 · 台北</p>
-        </div>
-        <span class="when">2021.03 – 2023.06</span>
-      </div>
-      <ul>
-        <li>主要負責範圍。</li>
-        <li>具代表性的專案與成果。</li>
-      </ul>
-    </article>
-  </section>
-
-  <section id="projects">
-    <h2>專案作品</h2>
-
-    <article class="item">
-      <div class="item-head">
-        <div>
-          <h3 class="role">專案名稱</h3>
-          <p class="org"><a href="#">github.com/UncleLin332/project</a></p>
-        </div>
-        <span class="when">2024</span>
-      </div>
-      <ul>
-        <li>這個專案解決什麼問題、做給誰用。</li>
-        <li>技術選擇與你負責的部分；若有使用者數或成效，放這裡。</li>
-      </ul>
-    </article>
-  </section>
-
-  <section id="skills">
-    <h2>技能</h2>
-    <div class="skill-row">
-      <div class="skill-label">語言</div>
-      <ul class="tags"><li>Python</li><li>JavaScript</li><li>SQL</li></ul>
-    </div>
-    <div class="skill-row">
-      <div class="skill-label">框架 / 工具</div>
-      <ul class="tags"><li>React</li><li>Node.js</li><li>Docker</li><li>Git</li></ul>
-    </div>
-    <div class="skill-row">
-      <div class="skill-label">語文</div>
-      <ul class="tags"><li>中文（母語）</li><li>English</li></ul>
-    </div>
   </section>
 
   <section id="education">
@@ -194,16 +141,101 @@
     <article class="item">
       <div class="item-head">
         <div>
-          <h3 class="role">科系 · 學位</h3>
-          <p class="org">學校名稱</p>
+          <h3 class="role">資通科技國際學士學位學程</h3>
+          <p class="org">國立臺灣科技大學　National Taiwan University of Science and Technology</p>
         </div>
-        <span class="when">2017 – 2021</span>
+        <span class="when">2025 – 至今</span>
       </div>
     </article>
   </section>
 
+  <!-- ============================================================
+       專案作品｜等有第一個專案時，把下面整段的註解拿掉即可
+       每多一個專案就複製一組 <article class="item"> … </article>
+  =================================================================
+  <section id="projects">
+    <h2>專案作品</h2>
+    <article class="item">
+      <div class="item-head">
+        <div>
+          <h3 class="role">專案名稱</h3>
+          <p class="org"><a href="https://github.com/UncleLin332/REPO">github.com/UncleLin332/REPO</a></p>
+        </div>
+        <span class="when">2026</span>
+      </div>
+      <ul>
+        <li>解決什麼問題、做給誰用。</li>
+        <li>技術選擇與你負責的部分。</li>
+        <li>成果：使用人數／節省時間／改善幅度。</li>
+      </ul>
+      <ul class="tags" style="margin-top:12px"><li>Python</li><li>Flask</li></ul>
+    </article>
+  </section>
+  ============================================================ -->
+
+  <section id="credentials">
+    <h2>證照與語言</h2>
+    <div class="cred">
+      <div>
+        <div class="cred-name">AIA Talent Certification in AI Literacy（AI 素養級認證）</div>
+        <div class="cred-meta">台灣人工智慧學校 Taiwan AI Academy · 成績 87.5 · 編號 CL2608-E018</div>
+      </div>
+      <span class="cred-when">2026.08　<span style="opacity:.7">效期至 2028.08</span></span>
+    </div>
+    <div class="cred">
+      <div>
+        <div class="cred-name">TOEIC 多益測驗</div>
+        <div class="cred-meta">總分 870</div>
+      </div>
+      <span class="cred-when">—</span>
+    </div>
+    <div class="cred">
+      <div>
+        <div class="cred-name">語言</div>
+        <div class="cred-meta">中文（母語）· English（TOEIC 870）</div>
+      </div>
+      <span class="cred-when"></span>
+    </div>
+    <!-- 新證照複製這一組：
+    <div class="cred">
+      <div>
+        <div class="cred-name">證照名稱</div>
+        <div class="cred-meta">發證單位／分數／等級</div>
+      </div>
+      <span class="cred-when">2026.03</span>
+    </div>
+    -->
+  </section>
+
+  <section id="experience">
+    <h2>工作經歷</h2>
+    <article class="item">
+      <div class="item-head">
+        <div>
+          <h3 class="role">外場服務生</h3>
+          <p class="org">上海茶樓 · 台北</p>
+        </div>
+        <span class="when">2025.06 – 2025.08</span>
+      </div>
+      <ul>
+        <li>負責帶位、點餐與送餐，維持用餐尖峰時段的桌次流動。</li>
+        <li>第一線處理客人需求與突發狀況，並與內場即時溝通協調。</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============================================================
+       技能｜等確定要寫哪些語言／工具時，拿掉註解
+  =================================================================
+  <section id="skills">
+    <h2>技能</h2>
+    <ul class="tags"><li>Python</li><li>C</li><li>Git</li></ul>
+  </section>
+  ============================================================ -->
+
   <footer>
-    最後更新：2026 年 11 月 · 以 GitHub Pages 架設
+    最後更新：2026 年 11 月 · 以 GitHub Pages 架設 ·
+    <a href="https://github.com/UncleLin332/UncleLin332.github.io">原始碼</a>
   </footer>
 
 </div>
