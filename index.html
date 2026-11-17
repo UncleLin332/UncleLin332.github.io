@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Andy Lin</title>
-<meta name="description" content="林祐安 Andy Lin — 國立臺灣科技大學資通科技國際學士學位學程。記錄我做過的專案與學到的東西。">
+<meta name="description" content="Andy Lin — 國立臺灣科技大學資通科技國際學士學位學程。做過 YouTube 語言學習 Chrome 擴充，正在學法文，記錄我做過的專案與學到的東西。">
 
 <!-- LinkedIn / 社群分享卡片 -->
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Andy Lin">
-<meta property="og:description" content="國立臺灣科技大學 · 資通科技國際學士學位學程。記錄我做過的專案與學到的東西。">
+<meta property="og:description" content="國立臺灣科技大學 · 資通科技國際學士學位學程。做過 YouTube 語言學習 Chrome 擴充，正在學法文。">
 <meta property="og:url" content="https://unclelin332.github.io/">
 <meta name="twitter:card" content="summary">
 <!-- TODO: 之後放一張 1200×630 的圖（og-image.png）到 repo，取消下一行註解，分享時會顯示大圖卡片
@@ -131,7 +131,9 @@
   <section id="about">
     <h2>關於我</h2>
     <p class="summary">
-      國立臺灣科技大學資通科技國際學士學位學程大二在學中，正在打底程式與通訊領域的基礎。
+      國立臺灣科技大學資通科技國際學士學位學程大二在學中。
+      目前正在學法文，預計 2027 年夏天報考 DELF A2；也因為自己的學習需求，動手做了一個
+      YouTube 語言學習的 Chrome 擴充，把每天卡住的地方變成工具。
       這個網站會持續記錄我做過的專案、拿到的證照，以及一路上學到的東西。
     </p>
   </section>
@@ -149,29 +151,37 @@
     </article>
   </section>
 
-  <!-- ============================================================
-       專案作品｜等有第一個專案時，把下面整段的註解拿掉即可
-       每多一個專案就複製一組 <article class="item"> … </article>
-  =================================================================
   <section id="projects">
     <h2>專案作品</h2>
+
     <article class="item">
       <div class="item-head">
         <div>
-          <h3 class="role">專案名稱</h3>
-          <p class="org"><a href="https://github.com/UncleLin332/REPO">github.com/UncleLin332/REPO</a></p>
+          <h3 class="role">YouTube 語言學習助手</h3>
+          <p class="org">Chrome 擴充功能 · 個人專案</p>
         </div>
         <span class="when">2026</span>
       </div>
       <ul>
-        <li>解決什麼問題、做給誰用。</li>
-        <li>技術選擇與你負責的部分。</li>
-        <li>成果：使用人數／節省時間／改善幅度。</li>
+        <li>看 YouTube 學語言時，查單字會一直打斷影片。這個擴充每約 30 秒自動暫停，
+            整理該段落的單字與片語，再帶使用者逐句複習（單句重播、0.75× 跟讀、聽寫模式），
+            複習完接著播下一段。</li>
+        <li>以 Claude 與 Gemini <strong>雙供應商</strong>實作，可在設定頁切換，兩邊共用同一份
+            JSON Schema 約束輸出；分析結果以「影片 + 模型 + 段落」為鍵快取於本機，重看同一部影片不重複付費。</li>
+        <li>YouTube 自 2026 年 11 月起封鎖字幕軌直接抓取（回 HTTP 200 但內容為空），
+            改以解析轉錄稿面板的 DOM 取得字幕。實測一支 7 分 22 秒的法文影片：
+            <strong>61 行字幕切成 15 段，平均 29.5 秒、首尾相接無漏行</strong>。</li>
+        <li>字幕時間戳是整行的（常 5–8 秒一行），直接用會讓好幾句播到同一段音訊。
+            自行設計「字數流動」模型，依字數把行時長分配給句子，使單句重播的時間對位
+            從「整行 0.0–7.3 秒」收斂到「感嘆句 1.4 秒、長句 8.3 秒」的合理範圍。</li>
+        <li>收藏的單字、片語與文法重點可匯出為 Anki 可直接匯入的 CSV，跨影片保存在生字本中。</li>
       </ul>
-      <ul class="tags" style="margin-top:12px"><li>Python</li><li>Flask</li></ul>
+      <ul class="tags" style="margin-top:12px">
+        <li>JavaScript</li><li>Chrome Extension MV3</li><li>Claude API</li>
+        <li>Gemini API</li><li>JSON Schema</li><li>Service Worker</li>
+      </ul>
     </article>
   </section>
-  ============================================================ -->
 
   <section id="credentials">
     <h2>證照與語言</h2>
@@ -224,14 +234,14 @@
     </article>
   </section>
 
-  <!-- ============================================================
-       技能｜等確定要寫哪些語言／工具時，拿掉註解
-  =================================================================
   <section id="skills">
     <h2>技能</h2>
-    <ul class="tags"><li>Python</li><li>C</li><li>Git</li></ul>
+    <ul class="tags">
+      <li>JavaScript (ES6+)</li><li>Chrome Extension (Manifest V3)</li>
+      <li>DOM 操作</li><li>REST API 串接</li><li>JSON Schema</li>
+      <li>Git / GitHub</li><li>HTML / CSS</li>
+    </ul>
   </section>
-  ============================================================ -->
 
   <footer>
     最後更新：2026 年 11 月 · 以 GitHub Pages 架設 ·
