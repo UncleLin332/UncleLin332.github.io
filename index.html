@@ -74,6 +74,8 @@
   .org{color:var(--muted); font-size:15px; margin:3px 0 0}
   .when{color:var(--muted); font-size:13.5px; font-variant-numeric:tabular-nums; white-space:nowrap}
   .item ul{margin:10px 0 0; padding-left:1.15em}
+  .blurb{margin:9px 0 0; color:var(--text)}
+  .item .tags{margin-top:11px}
   .item li{margin:0 0 6px}
   .item li::marker{color:var(--muted)}
 
@@ -158,29 +160,33 @@
       <div class="item-head">
         <div>
           <h3 class="role">YouTube 語言學習助手</h3>
-          <p class="org">Chrome 擴充功能 · 個人專案　·　<a href="https://github.com/UncleLin332/youtube-language-tutor" target="_blank" rel="noopener">github.com/UncleLin332/youtube-language-tutor</a></p>
+          <p class="org">Chrome 擴充 · <a href="https://github.com/UncleLin332/youtube-language-tutor" target="_blank" rel="noopener">github.com/UncleLin332/youtube-language-tutor</a></p>
         </div>
         <span class="when">2026</span>
       </div>
-      <ul>
-        <li>看 YouTube 學語言時，查單字會一直打斷影片。這個擴充每約 30 秒自動暫停，
-            整理該段落的單字與片語，再帶使用者逐句複習（單句重播、0.75× 跟讀、聽寫模式），
-            複習完接著播下一段。</li>
-        <li>以 Claude 與 Gemini <strong>雙供應商</strong>實作，可在設定頁切換，兩邊共用同一份
-            JSON Schema 約束輸出；分析結果以「影片 + 模型 + 段落」為鍵快取於本機，重看同一部影片不重複付費。</li>
-        <li>YouTube 自 2026 年 11 月起封鎖字幕軌直接抓取（回 HTTP 200 但內容為空），
-            改以解析轉錄稿面板的 DOM 取得字幕。實測一支 7 分 22 秒的法文影片：
-            <strong>61 行字幕切成 15 段，平均 29.5 秒、首尾相接無漏行</strong>。</li>
-        <li>字幕時間戳是整行的（常 5–8 秒一行），直接用會讓好幾句播到同一段音訊。
-            自行設計「字數流動」模型，依字數把行時長分配給句子，使單句重播的時間對位
-            從「整行 0.0–7.3 秒」收斂到「感嘆句 1.4 秒、長句 8.3 秒」的合理範圍。</li>
-        <li>收藏的單字、片語與文法重點可匯出為 Anki 可直接匯入的 CSV，跨影片保存在生字本中。</li>
-      </ul>
-      <ul class="tags" style="margin-top:12px">
-        <li>JavaScript</li><li>Chrome Extension MV3</li><li>Claude API</li>
-        <li>Gemini API</li><li>JSON Schema</li><li>Service Worker</li>
+      <p class="blurb">
+        看影片學語言時每 30 秒自動暫停，整理該段的單字與片語並帶你逐句複習，收藏可匯出 Anki；
+        分析支援 Claude 與 Gemini 雙供應商切換。自行設計「字數流動」模型，
+        把行級的字幕時間戳分配到單句，讓單句重播對得準。
+      </p>
+      <ul class="tags">
+        <li>JavaScript</li><li>Chrome Extension MV3</li><li>Claude API</li><li>Gemini API</li>
       </ul>
     </article>
+
+    <!-- 新專案複製這一組：
+    <article class="item">
+      <div class="item-head">
+        <div>
+          <h3 class="role">專案名稱</h3>
+          <p class="org">類型 · <a href="https://github.com/UncleLin332/REPO">github.com/UncleLin332/REPO</a></p>
+        </div>
+        <span class="when">2026</span>
+      </div>
+      <p class="blurb">一到兩句：解決什麼問題，以及最值得一提的技術決定。</p>
+      <ul class="tags"><li>技術</li><li>技術</li></ul>
+    </article>
+    -->
   </section>
 
   <section id="credentials">
